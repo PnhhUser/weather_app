@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSearchTab } from "../contexts/searchTabContext";
+import { InputSearch } from "./inputSearch";
 
 export const HiddenSearchTab = () => {
   const { isOpenSearchTab, setIsOpenSearchTab } = useSearchTab();
@@ -16,7 +17,11 @@ export const HiddenSearchTab = () => {
       }}
     >
       <SwiperSlide />
-      <SwiperSlide className="bg-[#1B262C] max-h-[80%] opacity-95"></SwiperSlide>
+      <SwiperSlide className="bg-[#1B262C] max-h-[80%] opacity-95">
+        <div className="flex justify-center">
+          <InputSearch />
+        </div>
+      </SwiperSlide>
     </Swiper>
   );
 };

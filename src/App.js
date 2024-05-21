@@ -1,6 +1,5 @@
 import { BackgroundApp } from "./Components/backgroundApp";
 import { ContentApp } from "./Components/contentApp";
-// import { HeaderApp } from "./Components/headerApp";
 import { HiddenSearchTab } from "./Components/hideSearchTab";
 import { SearchTabProvider } from "./contexts/searchTabContext";
 import bgWeather from "./b1.jpg";
