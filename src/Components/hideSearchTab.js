@@ -16,7 +16,7 @@ export const HiddenSearchTab = () => {
       }}
     >
       <SwiperSlide />
-      <SwiperSlide className="bg-blue-500 max-h-[80%]">Slide 2</SwiperSlide>
+      <SwiperSlide className="bg-[#1B262C] max-h-[80%] opacity-95"></SwiperSlide>
     </Swiper>
   );
 };
