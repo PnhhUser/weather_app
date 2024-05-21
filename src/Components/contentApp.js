@@ -61,8 +61,7 @@ const TempDuringDays = ({ days, address }) => {
                   {getTimeStringWithAMPM(hour.datetime)}
                 </p>
               </div>
-
-              <div className="px-2">
+              <div>
                 <div className="flex">
                   <p className="text-[2.4em] font-bold text-white pt-2">
                     {ConvertFtoC(hour.temp)}
@@ -74,7 +73,6 @@ const TempDuringDays = ({ days, address }) => {
                     className="-translate-x-1 -translate-y-4"
                   />
                 </div>
-
                 <div>
                   <p className="font-semibold text-[0.7em] text-gray-300 capitalize">
                     {city}
@@ -97,8 +95,6 @@ export const ContentApp = () => {
   const { dataWeather, isLoadingData } = useWeather();
   const { currentConditions, address, description, days } = dataWeather;
 
-  console.log(days);
-
   if (isLoadingData) {
     return (
       <div
@@ -111,8 +107,6 @@ export const ContentApp = () => {
       </div>
     );
   }
-
-  console.log();
 
   return (
     <div className={`relative ${isOpenSearchTab ? "z-0" : "z-10"}`}>
