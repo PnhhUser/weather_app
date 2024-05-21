@@ -1,4 +1,12 @@
-import { WiCelsius, WiStrongWind } from "react-icons/wi";
+import {
+  WiBarometer,
+  WiCelsius,
+  WiDaySunny,
+  WiHorizon,
+  WiHumidity,
+  WiStrongWind,
+  WiWindy,
+} from "react-icons/wi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSearchTab } from "../contexts/searchTabContext";
 
@@ -10,23 +18,29 @@ const Temperature = ({ temp, city, country }) => {
   };
 
   return (
-    <div className="py-2">
+    <div className="py-2 bg-gradient-to-b from-[#3282B8] to-[#0F4C75]">
       <div className="flex justify-center">
-        <p className="text-[3.5em] ps-10 font-bold text-[#0F4C75]">
+        <p className="text-[3.5em] ps-10 font-bold text-white">
           {temp ? temp : defaultData.temp}
         </p>
         <WiCelsius
           fontSize={80}
           className="-translate-x-6"
           strokeWidth={1}
-          color="#0F4C75"
+          color="white"
         />
       </div>
       <div className="flex justify-center">
-        <p className="font-semibold pr-3 text-sm text-[#3282B8]">
+        <p className="font-semibold pr-3 text-sm text-[#BBE1FA]">
           {city ? city : defaultData.city}
           <span> / </span>
           {country ? country : defaultData.country}
+        </p>
+      </div>
+      <div className="px-4">
+        <p className="text-[0.8em] text-center text-[#BBE1FA]">
+          Cloudy skies throughout the day with a chance of rain throughout the
+          day.
         </p>
       </div>
     </div>
@@ -76,12 +90,12 @@ const TempDuringDays = () => {
   );
 };
 
-const CardInfo = () => {
+const CardInfo = ({ title, icon }) => {
   return (
     <div className="p-1 rounded-md bg-gradient-to-t from-[#3282B8] to-[#0F4C75] shadow-lg">
       <div className="flex items-center">
-        <p className="text-[0.7em] text-white"> Windy </p>
-        <WiStrongWind color="white" className="ms-1" />
+        <p className="text-[0.7em] text-white capitalize"> {title} </p>
+        {icon}
       </div>
       <div className="flex items-end justify-center">
         <p className="text-[2.5em] text-white font-thin">100</p>
@@ -94,14 +108,27 @@ const CardInfo = () => {
 const InfoMore = () => {
   return (
     <div className="grid grid-cols-2 gap-2">
-      <CardInfo />
-      <CardInfo />
-      <CardInfo />
-      <CardInfo />
-      <CardInfo />
-      <CardInfo />
-      <CardInfo />
-      <CardInfo />
+      <CardInfo
+        title="wind speed"
+        icon={<WiStrongWind color="white" className="ms-1" />}
+      />
+      <CardInfo
+        title="Ultraviolet"
+        icon={<WiDaySunny color="white" className="ms-1" />}
+      />
+      <CardInfo
+        title="Sunrise"
+        icon={<WiHorizon color="white" className="ms-1" />}
+      />
+      <CardInfo
+        title="Pressure"
+        icon={<WiBarometer color="white" className="ms-1" />}
+      />
+      <CardInfo
+        title="Humidity"
+        icon={<WiHumidity color="white" className="ms-1" />}
+      />
+      <CardInfo title="dew" icon={<WiWindy color="white" className="ms-1" />} />
     </div>
   );
 };
