@@ -107,7 +107,6 @@ export const ContentApp = () => {
       </div>
     );
   }
-
   return (
     <div className={`relative ${isOpenSearchTab ? "z-0" : "z-10"}`}>
       <Temperature

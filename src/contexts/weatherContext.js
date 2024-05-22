@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-// import { sleep } from "../utils";
 
 const WeatherContext = createContext(null);
 
@@ -15,6 +14,7 @@ export function useWeather() {
 export const WeatherProvider = ({ children }) => {
   const [dataWeather, setDataWeather] = useState([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
+  const [resultSearch, setResutlSearch] = useState(POSITION_DEFAULT);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -23,23 +23,23 @@ export const WeatherProvider = ({ children }) => {
       const res = await fetch(url);
       const data = await res.json();
 
-      // await sleep(1000);
-
       if (isSubscribed) {
         setDataWeather(data);
         setIsLoadingData(false);
       }
     }
 
-    fetchData(`${URL}${POSITION_DEFAULT}?key=${KEY}`);
+    fetchData(`${URL}${resultSearch}?key=${KEY}`);
 
     return () => {
       isSubscribed = false;
     };
-  }, []);
+  }, [resultSearch]);
 
   return (
-    <WeatherContext.Provider value={{ dataWeather, isLoadingData }}>
+    <WeatherContext.Provider
+      value={{ dataWeather, isLoadingData, setResutlSearch }}
+    >
       {children}
     </WeatherContext.Provider>
   );

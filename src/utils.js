@@ -2,8 +2,9 @@ export const ConvertFtoC = (f) => {
   return ((f - 32) / 1.8).toFixed(1);
 };
 
-export const sleep = (ms) =>
-  new Promise((resolve) => setTimeout(resolve(), ms));
+export const sleep = (ms) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
 
 export const getDayAndMonth = (day) => {
   const currentDate = new Date(day);
