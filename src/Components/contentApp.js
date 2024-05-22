@@ -9,6 +9,7 @@ import {
   getLocationFromString,
   getTimeStringWithAMPM,
 } from "../utils";
+import { Autoplay } from "swiper/modules";
 
 const Temperature = ({ temp, address, description }) => {
   const defaultData = {
@@ -49,7 +50,13 @@ const TempDuringDays = ({ days, address }) => {
   const { city, country } = getLocationFromString(address);
   return (
     <div className="p-2">
-      <Swiper slidesPerView={3} spaceBetween={10}>
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={10}
+        modules={[Autoplay]}
+        autoplay={{ delay: 3000 }}
+        loop={true}
+      >
         {days[0].hours.map((hour, index) => {
           return (
             <SwiperSlide className="p-1 rounded-md glassmorphin" key={index}>

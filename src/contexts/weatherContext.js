@@ -33,6 +33,7 @@ export const WeatherProvider = ({ children }) => {
 
     return () => {
       isSubscribed = false;
+      setIsLoadingData(true);
     };
   }, [resultSearch]);
 
